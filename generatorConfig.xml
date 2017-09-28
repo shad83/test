@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 用于自动生成对应DB的entity和mapper -->
+<generatorConfiguration>
+    <!-- location需设置到本地相关的postgresql-9.4-1200-jdbc41.jar路径 -->
+    <classPathEntry location="C:\Users\shad\.m2\repository\org\postgresql\postgresql\9.4-1200-jdbc41\postgresql-9.4-1200-jdbc41.jar"/>
+	
+	<context id="context1">
+		<!-- 连接数据库的相关信息 -->
+		<jdbcConnection connectionURL="jdbc:postgresql://localhost:5432/postgres"
+			driverClass="org.postgresql.Driver" password="postgres" userId="postgres" />
+
+		<!-- targetPackage：自动生成的entity类的包名（自动，无需事前创建） -->
+		<!-- targetProject：当前工程名 -->
+		<javaModelGenerator targetPackage="com.xc.entity" targetProject="ssm" />
+
+		<sqlMapGenerator targetPackage="com.xc.mapper" targetProject="ssm" />
+
+		<javaClientGenerator targetPackage="com.xc.mapper" targetProject="ssm" type="XMLMAPPER" />
+
+		<!-- 需要自动生成的表的表名 -->
+		<table schema="public" tableName="person">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+<!-- 		<table schema="public" tableName="tableName">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+		。。。。。。 -->
+		
+	</context>
+</generatorConfiguration>
